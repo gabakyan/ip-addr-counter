@@ -51,6 +51,7 @@ public class Ipv4AddrCounter {
         int result = 0;
         for (int i = 0; i < ipAddrPart.length(); i++) {
             char ch = ipAddrPart.charAt(i);
+
             if (ch < 48 || ch > 57) {
                 throw new IllegalArgumentException("The illegal ipv4 address part: \"" + ipAddrPart
                         + "\".charAt(" + i + ") < 48 || \"" + ipAddrPart + "\".charAt(" + i + ") > 57");
