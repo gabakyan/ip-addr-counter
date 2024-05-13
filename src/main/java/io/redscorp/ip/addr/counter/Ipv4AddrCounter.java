@@ -56,7 +56,7 @@ public class Ipv4AddrCounter {
                         + "\".charAt(" + i + ") < 48 || \"" + ipAddrPart + "\".charAt(" + i + ") > 57");
             }
 
-            result = result * 10 + (ipAddrPart.charAt(i) - 48);
+            result = result * 10 + (ch - 48);
         }
 
         return result;
