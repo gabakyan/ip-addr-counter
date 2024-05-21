@@ -14,8 +14,8 @@ Some highlights:
 
 - The command to run executable jar after build:
 
-  ``java -jar ip-addr-counter-<version>.jar <filename>``
+  ``java -Xms6G -Xmx6G -XX:+UseCompressedOops -jar ip-addr-counter-<version>.jar <filename>``
 
   *Example:*
 
-  ``java -jar ip-addr-counter-0.0.1-SNAPSHOT.jar ip_addresses``
+  ``java -Xms6G -Xmx6G -XX:+UseCompressedOops -jar ip-addr-counter-0.0.1-SNAPSHOT.jar ip_addresses``

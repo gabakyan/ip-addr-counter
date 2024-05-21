@@ -1,5 +1,7 @@
 package io.redscorp.ip.addr.counter;
 
+import java.time.LocalDateTime;
+
 /**
  * The main class.
  *
@@ -13,6 +15,8 @@ public class Main {
 			return;
 		}
 
+		System.out.println("Started: " + LocalDateTime.now());
 		System.out.println(new Ipv4AddrCounter(args[0]).count());
+		System.out.println("Ended: " + LocalDateTime.now());
 	}
 }

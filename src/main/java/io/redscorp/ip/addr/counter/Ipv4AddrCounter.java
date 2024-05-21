@@ -19,8 +19,10 @@ public class Ipv4AddrCounter {
     }
 
     public long count() throws IOException {
+        IntCounter intCounter = new IntCounter();
+
         try (Stream<String> linesStream = Files.lines(Path.of(filename))) {
-            return linesStream.parallel().mapToInt(ipAddrString -> {
+            linesStream.parallel().mapToInt(ipAddrString -> {
                 String[] ipAddrParts = ipAddrString.split("[.]");
 
                 if (ipAddrParts.length != 4) {
@@ -33,8 +35,10 @@ public class Ipv4AddrCounter {
                         | parseIpAddrPart(ipAddrParts[1]) << 16
                         | parseIpAddrPart(ipAddrParts[2]) << 8
                         | parseIpAddrPart(ipAddrParts[3]);
-            }).distinct().count();
+            }).forEach(intCounter::count);
         }
+
+        return intCounter.getCount();
     }
 
     private static int parseIpAddrPart(String ipAddrPart) {
